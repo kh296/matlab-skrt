@@ -35,7 +35,7 @@ voxel dimensions and extent as the fixed image.
 
 ### Example
 
-See: [Two-step deformable image registration](docs/deformable_registration.md)
+See: [Two-step deformable image registration](examples/deformable_registration.md)
 
 ### Package functions
 
