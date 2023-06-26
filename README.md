@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `mskrt` package provides a set of functions for multi-step rigid
+The `matlab-skrt` toolbox provides a set of functions for multi-step rigid
 and deformable registration of 3D medical images in the format of the
 Neuroimaging Informatics Technology Initiative
 ([NIfTI](https://nifti.nimh.nih.gov/)).  The
