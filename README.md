@@ -1,4 +1,4 @@
-# matlab-skrt
+# Multi-step image registration
 
 ## Overview
 
@@ -9,6 +9,10 @@ Neuroimaging Informatics Technology Initiative
 functions implement a MATLAB image-registration engine for
 [scikit-rt](https://scikit-rt.github.io/scikit-rt/), a Python toolkit for
 radiotherapy data, but may also be used standalone.
+
+This work was supported by Cancer Research UK RadNet Cambridge [C17918/A28870].
+
+<img src="docs/images/RadNet_Cambridge.png" alt="RadNet logo" height="150"/>
 
 ## Usage
 
