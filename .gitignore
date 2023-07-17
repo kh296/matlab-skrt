@@ -2,4 +2,6 @@
 !.gitignore
 build
 *.app
+*.mltbx
+*.prj
 registration_results
