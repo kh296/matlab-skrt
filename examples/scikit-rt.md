@@ -17,13 +17,13 @@ a [standalone application](https://uk.mathworks.com/help/compiler/standalone-app
 ## Example
 
 For an example registration, using `matlab-skrt` and other registration
-engines from `scikit-rt`, see: [Image registration - performance checks](https://github.com/scikit-rt/scikit-rt/blob/master/examples/notebooks/image_registration_checks.ipynb)
+engines with `scikit-rt`, see: [Image registration - performance checks](https://github.com/scikit-rt/scikit-rt/blob/master/examples/notebooks/image_registration_checks.ipynb)
 
 ## Software installation and setup
 
 For `scikit-rt` documentation, including installation instructions, see:
 
-- [https://scikit-rt.github.io/scikit-rt/index.html](https://scikit-rt.github.io/scikit-rt/index.html).
+- [https://scikit-rt.github.io/scikit-rt/](https://scikit-rt.github.io/scikit-rt/).
 
 Three strategies for setting up `matlab-skrt` for use from `scikit-rt` are
 outlined below.
@@ -40,27 +40,27 @@ To use the `matlab-skrt` toolbox, do as follows:
 - From a terminal windows where you'll be running `scikit-rt` code, set up
   the environment in either of the following ways:
 
-  a. Before running `scikit-rt` code:
-     - Ensure that the environment variable PATH includes the path to
-       the directory containing the MATLAB executable, for example
-       (bash shell):
-       ```
-       export PATH=/path/to/directory/containing/MATLAB/executable:$PATH
-       ```
-     - In the `scikit-rt` code to be run, include the lines:
-       ```
-       from skrt.core import Defaults
-       Defaults().matlab_app = True
-       Defaults().matlab_runtime = False
+  - Option 1: before running `scikit-rt` code:
+    - Ensure that the environment variable PATH includes the path to
+      the directory containing the MATLAB executable, for example
+      (bash shell):
+      ```
+      export PATH=/path/to/directory/containing/MATLAB/executable:$PATH
+      ```
+    - In the `scikit-rt` code to be run, include the lines:
+      ```
+      from skrt.core import Defaults
+      Defaults().matlab_app = True
+      Defaults().matlab_runtime = False
        ```
 
-  b. In the `scikit-rt` code to be run, include (substituting
-     actual path) the lines:
-     ```
-     from skrt.core import Defaults
-     Defaults().matlab_app = "/path/to/directory/containing/MATLAB/executable"
-     Defaults().matlab_runtime = False
-     ```
+  - Option 2: in the `scikit-rt` code to be run, include (substituting
+    actual path) the lines:
+    ```
+    from skrt.core import Defaults
+    Defaults().matlab_app = "/path/to/directory/containing/MATLAB/executable"
+    Defaults().matlab_runtime = False
+    ```
 
 ### 2. Using mskrt package
 
@@ -72,42 +72,42 @@ To use the `mskrt` package` toolbox, do as follows:
 - From a terminal windows where you'll be running `scikit-rt` code, set up
   the environment in either of the following ways:
 
-  a. Before running `scikit-rt` code:
-     - Ensure that the environment variable PATH includes the path to
-       the directory containing the MATLAB executable, for example
-       (bash shell):
-       ```
-       export PATH=/path/to/directory/containing/MATLAB/executable:$PATH
-       ```
-     - Ensure that the environment variable MATLABPATH includes the path to
-       the directory containing the `mskrt` package, for example
-       (bash shell):
-       ```
-       export MATLABPATH=/path/to/directory/containing/mskrt/package
-       ```
-     - In the `scikit-rt` code to be run, include the lines:
-       ```
-       from skrt.core import Defaults
-       Defaults().matlab_app = True
-       Defaults().matlab_runtime = False
-       ```
+  - Option 1: before running `scikit-rt` code:
+    - Ensure that the environment variable PATH includes the path to
+      the directory containing the MATLAB executable, for example
+      (bash shell):
+      ```
+      export PATH=/path/to/directory/containing/MATLAB/executable:$PATH
+      ```
+    - Ensure that the environment variable MATLABPATH includes the path to
+      the directory containing the `mskrt` package, for example
+      (bash shell):
+      ```
+      export MATLABPATH=/path/to/directory/containing/mskrt/package
+      ```
+    - In the `scikit-rt` code to be run, include the lines:
+      ```
+      from skrt.core import Defaults
+      Defaults().matlab_app = True
+      Defaults().matlab_runtime = False
+      ```
 
-  b. In the `scikit-rt` code to be run, include (substituting
-     actual paths) the lines:
-     ```
-     from skrt.core import Defaults
-     from skrt.registration import set_engine_dir
-     Defaults().matlab_app = "/path/to/directory/containing/MATLAB/executable"
-     Defaults().matlab_runtime = False
-     set_engine_dir("/path/to/directory/containing/mskrt/package", engine="matlab")
-     ```
-     As an alternative to calling the
-     [skrt.registration.set_engine_dir()](https://scikit-rt.github.io/scikit-rt/skrt.registration.html#skrt.registration.set_engine_dir)
-     function, the path to the directory containing the `mskrt` package may
-     also be passed as the value of the `engine_dir` parameter accepted
-     by the constructor of the
-     [skrt.registration.Registration](https://scikit-rt.github.io/scikit-rt/skrt.registration.html#skrt.registration.Registration)
-     class.
+  - Option 2: in the `scikit-rt` code to be run, include (substituting
+    actual paths) the lines:
+    ```
+    from skrt.core import Defaults
+    from skrt.registration import set_engine_dir
+    Defaults().matlab_app = "/path/to/directory/containing/MATLAB/executable"
+    Defaults().matlab_runtime = False
+    set_engine_dir("/path/to/directory/containing/mskrt/package", engine="matlab")
+    ```
+    As an alternative to calling the
+    [skrt.registration.set_engine_dir()](https://scikit-rt.github.io/scikit-rt/skrt.registration.html#skrt.registration.set_engine_dir)
+    function, the path to the directory containing the `mskrt` package may
+    also be passed as the value of the `engine_dir` parameter accepted
+    by the constructor of the
+    [skrt.registration.Registration](https://scikit-rt.github.io/scikit-rt/skrt.registration.html#skrt.registration.Registration)
+    class.
       
 ### 3. Using matlabreg standalone application
 
@@ -129,35 +129,35 @@ then do as follows:
 - From a terminal windows where you'll be running `scikit-rt` code, set up
   the environment in either of the following ways:
 
-  a. Before running `scikit-rt` code:
-     - Ensure that the environment variable PATH includes the path to
-       the directory containing the `matlabreg` executable, for example
-       (bash shell):
-       ```
-       export PATH=/path/to/directory/containing/matlabreg/executable:$PATH
-       ```
+  - Option 1: before running `scikit-rt` code:
+    - Ensure that the environment variable PATH includes the path to
+      the directory containing the `matlabreg` executable, for example
+      (bash shell):
+      ```
+      export PATH=/path/to/directory/containing/matlabreg/executable:$PATH
+      ```
 
-     - Follow the MATLAB instructions:
-       [Set MATLAB Runtime Path for Deployment](https://mathworks.com/help/compiler/mcr-path-settings-for-run-time-deployment.html)
+    - Follow the MATLAB instructions:
+      [Set MATLAB Runtime Path for Deployment](https://mathworks.com/help/compiler/mcr-path-settings-for-run-time-deployment.html)
 
-     - In the `scikit-rt` code to be run, include the lines:
-       ```
-       from skrt.core import Defaults
-       Defaults().matlab_runtime = True
-       ```
+    - In the `scikit-rt` code to be run, include the lines:
+      ```
+      from skrt.core import Defaults
+      Defaults().matlab_runtime = True
+      ```
 
-  b. In the `scikit-rt` code to be run, include (substituting
-     actual paths) the lines:
+  - Option 2: in the `scikit-rt` code to be run, include (substituting
+    actual paths) the lines:
+    ```
+    from skrt.core import Defaults
+    from skrt.registration import set_engine_dir
+    Defaults().matlab_runtime = "/path/to/matlab/runtime/install/directory"
+    set_engine_dir("/path/to/directory/containing/matlabreg/executable", engine="matlab")
      ```
-     from skrt.core import Defaults
-     from skrt.registration import set_engine_dir
-     Defaults().matlab_runtime = "/path/to/matlab/runtime/install/directory"
-     set_engine_dir("/path/to/directory/containing/matlabreg/executable", engine="matlab")
-     ```
-     As an alternative to calling the
-     [skrt.registration.set_engine_dir()](https://scikit-rt.github.io/scikit-rt/skrt.registration.html#skrt.registration.set_engine_dir)
-     function, the path to the directory containing the `matlabreg` executable
-     may also be passed as the value of the `engine_dir` parameter accepted
-     by the constructor of the
-     [skrt.registration.Registration](https://scikit-rt.github.io/scikit-rt/skrt.registration.html#skrt.registration.Registration)
-     class.
+    As an alternative to calling the
+    [skrt.registration.set_engine_dir()](https://scikit-rt.github.io/scikit-rt/skrt.registration.html#skrt.registration.set_engine_dir)
+    function, the path to the directory containing the `matlabreg` executable
+    may also be passed as the value of the `engine_dir` parameter accepted
+    by the constructor of the
+    [skrt.registration.Registration](https://scikit-rt.github.io/scikit-rt/skrt.registration.html#skrt.registration.Registration)
+    class.
