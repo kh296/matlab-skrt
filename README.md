@@ -37,9 +37,10 @@ moving image and, for affine transforms, the displacement field.
 The transformed moving image always has the same size,
 voxel dimensions and extent as the fixed image.
 
-### Example
+### Examples
 
-See: [Two-step deformable image registration](examples/deformable_registration.md)
+- [Two-step deformable image registration](examples/deformable_registration.md)
+- [Using matlab-skrt with scikit-rt](examples/scikit-rt.md)
 
 ### Package functions
 
