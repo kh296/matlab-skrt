@@ -64,7 +64,7 @@ To use the `matlab-skrt` toolbox, do as follows:
 
 ### 2. Using mskrt package
 
-To use the `mskrt` package` toolbox, do as follows:
+To use the `mskrt` package, do as follows:
 
 - Download and uncompress the latest version of the package source archive:
   - [https://github.com/kh296/matlab-skrt/releases/latest/download/+mskrt.zip](https://github.com/kh296/matlab-skrt/releases/latest/download/+mskrt.zip)
@@ -122,7 +122,7 @@ then do as follows:
 - Follow the instructions linked from the **Build** section of
   the MATLAB documentation: [Standalone Applications](https://mathworks.com/help/compiler/standalone-applications.html).  Alternatively, you can use
   [GNU Make](https://www.gnu.org/software/make/) with the
-  [matlabreg Makefile](https://github.com/kh296/matlab-skrt/blob/main/Makefile).
+  `matlabreg` [Makefile](https://github.com/kh296/matlab-skrt/blob/main/Makefile).
 
 - Follow the MATLAB instructions: [Install and Configure MATLAB runtime](https://uk.mathworks.com/help/compiler/install-the-matlab-runtime.html)
 
