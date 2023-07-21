@@ -37,18 +37,17 @@ clear
 close all
 
 % Try to ensure that mskrt package is in the path.
-mskrtRoot = fileparts(fileparts(mfilename('fullpath')))
+mskrtRoot = fileparts(fileparts(mfilename('fullpath')));
 if ~contains(path, mskrtRoot)
-    disp("Hello")
     addpath(mskrtRoot)
 end
 
 % Define path to data folder.
-dataDir = fullfile(mskrtRoot, "examples", "data")
+dataDir = fullfile(mskrtRoot, "examples", "data");
 
 % Define paths to NIfTI files for fixed and moving image.
-spherePath = fullfile(dataDir, "sphere.nii.gz")
-cubePath = fullfile(dataDir, "cube.nii.gz")
+spherePath = fullfile(dataDir, "sphere.nii.gz");
+cubePath = fullfile(dataDir, "cube.nii.gz");
 
 % Define path to results folder.
 resultsDir = fullfile(mskrtRoot, "registration_results");
