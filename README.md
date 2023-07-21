@@ -1,5 +1,7 @@
 # Multi-step image registration
 
+[![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=kh296/matlab-skrt)
+
 ## Overview
 
 The `matlab-skrt` toolbox provides a set of functions for multi-step rigid
