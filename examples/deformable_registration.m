@@ -36,16 +36,22 @@
 clear
 close all
 
-import mskrt.matlabreg
-import mskrt.niftiload
-import mskrt.niftishowpair
+% Try to ensure that mskrt package is in the path.
+mskrtRoot = fileparts(fileparts(mfilename('fullpath')))
+if ~contains(path, mskrtRoot)
+    disp("Hello")
+    addpath(mskrtRoot)
+end
+
+% Define path to data folder.
+dataDir = fullfile(mskrtRoot, "examples", "data")
 
 % Define paths to NIfTI files for fixed and moving image.
-spherePath = "data/sphere.nii.gz";
-cubePath = "data/cube.nii.gz";
+spherePath = fullfile(dataDir, "sphere.nii.gz")
+cubePath = fullfile(dataDir, "cube.nii.gz")
 
-% Define path to results folder
-resultsDir = "../registration_results";
+% Define path to results folder.
+resultsDir = fullfile(mskrtRoot, "registration_results");
 
 % Ensure that results folder exists and is empty.
 if exist(resultsDir, "dir")
@@ -65,28 +71,31 @@ xyz2 = [15, -13, 19];
 view = "x-y";
 
 % Display initial images.
-niftishowpair(spherePath, cubePath, xyz1, xyz2, view=view, ...
+mskrt.niftishowpair(spherePath, cubePath, xyz1, xyz2, view=view, ...
     titles=["Fixed image", "Moving image", "Fixed image vs Moving image"])
 
 % Perform first registration step: translation.
-matlabreg("imregtform", cubePath, spherePath, imregtformDir, ...
+mskrt.matlabreg("imregtform", cubePath, spherePath, imregtformDir, ...
     "translation", "monomodal", "nearest")
 
 % Display images after applying the translation
 % from the first registration step to the moving image.
 % The transformed cube is approximately superimposed on the sphere.
 cubeTranslatedPath = fullfile(imregtformDir, "result.0.nii");
-niftishowpair(spherePath, cubeTranslatedPath, xyz1, xyz1, view=view, ...
+mskrt.niftishowpair(spherePath, cubeTranslatedPath, ...
+    xyz1, xyz1, view=view, ...
     titles=["Fixed image", "Translated moving image", ...
     "Fixed image vs Translated moving image"])
 
 % Perform second registration step: deformation.
-matlabreg("imregdeform", cubeTranslatedPath, spherePath, imregdeformDir)
+mskrt.matlabreg("imregdeform", cubeTranslatedPath, spherePath, ...
+    imregdeformDir)
 
 % Display images after also applying the deformation
 % from the second registration step to the moving image.
 % The transformed cube approximately matches the sphere.
 cubeDeformedPath = fullfile(imregdeformDir, "result.0.nii");
-niftishowpair(spherePath, cubeDeformedPath, xyz1, xyz1, view=view, ...
+mskrt.niftishowpair(spherePath, cubeDeformedPath, ...
+    xyz1, xyz1, view=view, ...
     titles=["Fixed image", "Translated and deformed moving image", ...
     "Fixed image vs Translated and deformed moving image"])
