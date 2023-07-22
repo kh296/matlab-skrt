@@ -37,8 +37,10 @@ in the format of the Neuroimaging Informatics Technology Initiative
   - image extent (x, y, z): [[-40.40 39.60], [-35.50 44.50], [-20.75 39.25]]
   - cube with side length 30, centred at [15, -13, 19]
 
-The code for this example is in the script:
-- [deformable_registration.m](deformable_registration.m)
+The code for this example is available as a script (.m)
+and as a live script (.mlx):
+- [deformable_registration.m](deformable_registration.m) [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=kh296/matlab-skrt&file=examples/deformable_registration.m)
+- [deformable_registration.mlx](deformable_registration.mlx) [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=kh296/matlab-skrt&file=examples/deformable_registration.mlx)
 
 ## Code walk through
 
@@ -119,14 +121,14 @@ view is chosen so that the transformed moving image has
 the same size, voxel dimensions and extent as the fixed image.
 ```
 % Perform first registration step: translation.
-matlabreg("imregtform", cubePath, spherePath, imregtformDir, ...
+mskrt.matlabreg("imregtform", cubePath, spherePath, imregtformDir, ...
     "translation", "monomodal", "nearest")
 
 % Display images after applying the translation
 % from the first registration step to the moving image.
 % The transformed cube is approximately superimposed on the sphere.
 cubeTranslatedPath = fullfile(imregtformDir, "result.0.nii");
-niftishowpair(spherePath, cubeTranslatedPath, xyz1, xyz1, view=view, ...
+mskrt.niftishowpair(spherePath, cubeTranslatedPath, xyz1, xyz1, view=view, ...
     titles=["Fixed image", "Translated moving image", ...
     "Fixed image vs Translated moving image"])
 ```
@@ -152,13 +154,13 @@ a good job.
 
 ```
 % Perform second registration step: deformation.
-matlabreg("imregdeform", cubeTranslatedPath, spherePath, imregdeformDir)
+mskrt.matlabreg("imregdeform", cubeTranslatedPath, spherePath, imregdeformDir)
 
 % Display images after also applying the deformation
 % from the second registration step to the moving image.
 % The transformed cube approximately matches the sphere.
 cubeDeformedPath = fullfile(imregdeformDir, "result.0.nii");
-niftishowpair(spherePath, cubeDeformedPath, xyz1, xyz1, view=view, ...
+mskrt.niftishowpair(spherePath, cubeDeformedPath, xyz1, xyz1, view=view, ...
     titles=["Fixed image", "Translated and deformed moving image", ...
     "Fixed image vs Translated and deformed moving image"])
 ```
