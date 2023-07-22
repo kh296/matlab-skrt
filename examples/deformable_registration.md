@@ -39,8 +39,8 @@ in the format of the Neuroimaging Informatics Technology Initiative
 
 The code for this example is available as a script (.m)
 and as a live script (.mlx):
-- [deformable_registration.m](deformable_registration.m) [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=kh296/matlab-skrt&file=examples/deformable_registration.m)
-- [deformable_registration.mlx](deformable_registration.mlx) [![Open in MATLAB Online](https://www.mathworks.com/images/responsive/global/open-in-matlab-online.svg)](https://matlab.mathworks.com/open/github/v1?repo=kh296/matlab-skrt&file=examples/deformable_registration.mlx)
+- [deformable_registration.m](deformable_registration.m)
+- [deformable_registration.mlx](deformable_registration.mlx)
 
 ## Code walk through
 
