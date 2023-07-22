@@ -25,33 +25,39 @@ This example registers a cube to a sphere, starting from images
 in the format of the Neuroimaging Informatics Technology Initiative
  ([NIfTI](https://nifti.nimh.nih.gov/).
 
-- fixed image: [sphere.nii.gz](./examples/data/sphere.nii.gz)
+- fixed image: [sphere.nii.gz](data/sphere.nii.gz)
   - image size (rows, columns, slices): [80, 100, 40]
   - voxel size (x, y, z): [0.8, 1.0, 1.5]
   - image extent (x, y, z): [[-40.40 39.60], [-35.50 44.50], [-20.75 39.25]]
   - spere of radius 15, centred at [7, -5, 11]
 
-- moving image: [cube.nii.gz](../examples/data/cube.nii.gz)
+- moving image: [cube.nii.gz](data/cube.nii.gz)
   - image size (rows, columns, slices): [100, 60, 50]
   - voxel size (x, y, z): [1.5, 1.2, 1.0]
   - image extent (x, y, z): [[-40.40 39.60], [-35.50 44.50], [-20.75 39.25]]
   - cube with side length 30, centred at [15, -13, 19]
 
 The code for this example is in the script:
-- [deformable_registration.m](../examples/deformable_registration.m)
+- [deformable_registration.m](deformable_registration.m)
 
 ## Code walk through
 
 ### 1. Initialisation
-In the initialisation, a folder structure for storing results is created.
+In the initialisation, the MATLAB path is checked, and a folder structure
+for storing results is created.
 
-```
 % Initialise workspace.
 clear
 close all
 
-% Define path to results folder
-resultsDir = "../registration_results";
+% Try to ensure that mskrt package is in the path.
+mskrtRoot = fileparts(fileparts(mfilename('fullpath')));
+if ~contains(path, mskrtRoot)
+    addpath(mskrtRoot)
+end
+
+% Define path to results folder.
+resultsDir = fullfile(mskrtRoot, "registration_results");
 
 % Ensure that results folder exists and is empty.
 if exist(resultsDir, "dir")
@@ -64,7 +70,6 @@ imregdeformDir = fullfile(resultsDir, "imregdeformDir");
 mkdir(resultsDir)
 mkdir(imregtformDir)
 mkdir(imregdeformDir)
-```
 
 ### 2. Definition and display of initial images.
 
@@ -74,10 +79,12 @@ slices to be displayed.  The coordinates and view may be altered,
 to display different image features.
 
 ```
-% Define paths to NIfTI files for fixed and moving image.
-spherePath = "./data/sphere.nii.gz";
-cubePath = "./data/cube.nii.gz";
+% Define path to data folder.
+dataDir = fullfile(mskrtRoot, "examples", "data");
 
+% Define paths to NIfTI files for fixed and moving image.
+spherePath = fullfile(dataDir, "sphere.nii.gz");
+cubePath = fullfile(dataDir, "cube.nii.gz");
 
 % Use shape centres to define slices for viewing, and choose view.
 xyz1 = [7, -5, 11];
@@ -85,7 +92,7 @@ xyz2 = [15, -13, 19];
 view = "x-y";
 
 % Display initial images.
-niftishowpair(spherePath, cubePath, xyz1, xyz2, view=view, ...
+mskrt.niftishowpair(spherePath, cubePath, xyz1, xyz2, view=view, ...
     titles=["Fixed image", "Moving image", "Fixed image vs Moving image"])
 ```
 <figure>
