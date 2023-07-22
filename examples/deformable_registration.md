@@ -39,8 +39,8 @@ in the format of the Neuroimaging Informatics Technology Initiative
 
 The code for this example is available as a script (.m)
 and as a live script (.mlx):
-- [deformable_registration.m](deformable_registration.m)
-- [deformable_registration.mlx](deformable_registration.mlx)
+- [deformable_registration_01a.m](deformable_registration_01a.m)
+- [deformable_registration_01b.mlx](deformable_registration_01b.mlx)
 
 ## Code walk through
 
