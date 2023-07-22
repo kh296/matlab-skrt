@@ -42,13 +42,6 @@ if ~contains(path, mskrtRoot)
     addpath(mskrtRoot)
 end
 
-% Define path to data folder.
-dataDir = fullfile(mskrtRoot, "examples", "data");
-
-% Define paths to NIfTI files for fixed and moving image.
-spherePath = fullfile(dataDir, "sphere.nii.gz");
-cubePath = fullfile(dataDir, "cube.nii.gz");
-
 % Define path to results folder.
 resultsDir = fullfile(mskrtRoot, "registration_results");
 
@@ -63,6 +56,13 @@ imregdeformDir = fullfile(resultsDir, "imregdeformDir");
 mkdir(resultsDir)
 mkdir(imregtformDir)
 mkdir(imregdeformDir)
+
+% Define path to data folder.
+dataDir = fullfile(mskrtRoot, "examples", "data");
+
+% Define paths to NIfTI files for fixed and moving image.
+spherePath = fullfile(dataDir, "sphere.nii.gz");
+cubePath = fullfile(dataDir, "cube.nii.gz");
 
 % Use shape centres to define slices for viewing, and choose view.
 xyz1 = [7, -5, 11];
